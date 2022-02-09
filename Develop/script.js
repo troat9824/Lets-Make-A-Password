@@ -1,57 +1,64 @@
 // Assignment code here
 var character = {
-  lowercase: "",
-  uppercase: "",
-  num: "",
-  specCharacter: "",
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  num: "0123456789",
+  specCharacter: "!@#$%^&*",
 };
+
+function randomizer(charString) {
+  Math.random() * (charString.length);
+}
+var ifTrue = [];
+
+randomizer(character.lowercase);
+
+// var ifTrue = [true, false, true, true]
 
 function generatePassword() {
   var promptLength = window.prompt("Please choose a password length between 8 and 128 characters.");
-    // if(Number.isInteger(promptLength) === false || promptLength < 8 || promptLength > 128) {
-    //   window.alert("Please choose a number between 8 and 128.");
-    //   generatePassword();
-    // };
+    if(promptLength < 8 || promptLength > 128) {
+      window.alert("Please choose a number between 8 and 128.");
+      return generatePassword();
+    };
 
-    // // can't get this part to work correctly //
-    // if(Number.isInteger(promptLength) === true && promptLength >= 8 && promptLength <= 128) {
-    //   window.alert("Your password will be ${promptLength} characters long.")
-    //   return promptLength;
-    // };
-
-
-
+    if(promptLength >= 8 && promptLength <= 128) {
+      window.alert("Your password will be " + promptLength + " characters long.")
+    };
+    
   var promptLower = window.confirm('Would you like your password to contain Lowercase letters?');
     if(promptLower === true) {
       window.alert("Your password will include Lowercase Letters.");
-    };
-    if (promptLower === false) {
+      ifTrue.push(promptLower);
+    } else {
       window.alert("Your password will not include Lowercase Letters.");
     };
   
   var promptUpper = window.confirm("Would you like your password to contain Uppercase letters?");
     if(promptUpper === true) {
       window.alert("Your password will include Uppercase letters.");
-    };
-    if (promptUpper === false) {
+      ifTrue.push(promptUpper);
+    } else {
       window.alert("Your password will not include Uppercase letters.");
     };
   
   var promptNum = window.confirm("Would you like your password to contain numbers?");
     if(promptNum === true) {
       window.alert("Your password will include numbers.");
-    };
-    if(promptNum === false) {
+      ifTrue.push(promptNum);
+    } else {
       window.alert("Your password will not include numbers.");
     };
 
   var promptSpec = window.confirm("Would you like your password to contain special characters?");
     if(promptSpec === true) {
       window.alert("Your password will include special characters.");
-    };
-    if(promptSpec === false) {
+      ifTrue.push(promptSpec);
+    } else {
       window.alert("Your password will not include special characters.");
     };
+console.log(ifTrue);
+
 };
 
 
