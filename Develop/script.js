@@ -8,11 +8,23 @@ var character = {
 
 function generatePassword() {
   var promptLength = window.prompt("Please choose a password length between 8 and 128 characters.");
+    // if(Number.isInteger(promptLength) === false || promptLength < 8 || promptLength > 128) {
+    //   window.alert("Please choose a number between 8 and 128.");
+    //   generatePassword();
+    // };
+
+    // // can't get this part to work correctly //
+    // if(Number.isInteger(promptLength) === true && promptLength >= 8 && promptLength <= 128) {
+    //   window.alert("Your password will be ${promptLength} characters long.")
+    //   return promptLength;
+    // };
+
+
 
   var promptLower = window.confirm('Would you like your password to contain Lowercase letters?');
     if(promptLower === true) {
       window.alert("Your password will include Lowercase Letters.");
-    }
+    };
     if (promptLower === false) {
       window.alert("Your password will not include Lowercase Letters.");
     };
