@@ -1,14 +1,12 @@
 // Assignment code here
 var character = {
-  lowercase: "abcdefghijklmnopqrstuvwxyz",
-  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  num: "0123456789",
-  specCharacter: "!@#$%^&*",
+  lowercase: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
+  uppercase: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+  num: ["0","1","2","3","4","5","6","7","8","9"],
+  specCharacter: ["!","@","#","$","%","^","&*"],
 };
+var pwd ="";
 
-function randomizer(charString) {
-  Math.random() * (charString.length);
-}
 var ifTrue = [];
 
 randomizer(character.lowercase);
@@ -59,8 +57,50 @@ function generatePassword() {
     };
 console.log(ifTrue);
 
-};
 
+for (let i=0; pwd.length < promptLength.length; i++) {
+
+       
+  if (promptLower) {
+    console.log(`lowercase yes`);
+    let randomizerLowercase =
+      character.lowercase[Math.floor(Math.random() * character.lowercase.length)];
+    console.log(`randomizerLowercase: ${randomizerLowercase}`);
+    pwd = pwd + randomizerLowercase;
+  }
+
+  if (promptUpper) {
+    console.log(`uppercase yes`);
+    let randomizerUppercase =
+      character.uppercase[Math.floor(Math.random() * character.uppercase.length)];
+    console.log(`randomizerUppercase: ${randomizerUppercase}`);
+    pwd = pwd + randomizerUppercase;
+  }
+
+ 
+  if (promptNum) {
+    console.log(`num yes`);
+    let randomizerNum =
+      character.num[Math.floor(Math.random() * character.num.length)];
+    console.log(`randomizerNum: ${randomizerNum}`);
+    pwd = pwd + randomizerNum;
+  }
+
+ 
+  if (promptSpec) {
+    console.log(`spec yes`);
+    let randomizerSpec =
+      character.specCharacter[Math.floor(Math.random() * character.specCharacter.length)];
+    console.log(`randomizerSpec: ${randomizerSpec}`);
+    pwd = pwd + randomizerSpec;
+  }
+
+// Return the final password generated
+console.log(`pwd: ${pwd}`);
+console.log(`pwd length: ${pwd.length}`);
+return pwd;
+};
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -72,7 +112,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
