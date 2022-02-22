@@ -1,5 +1,7 @@
 # Let's Make A Password
 
+![Alt text](./assets/screenshot.jpg)
+
 ## Purpose
 * A password generator for your online security needs.
 
